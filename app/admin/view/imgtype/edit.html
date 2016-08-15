@@ -1,0 +1,17 @@
+<script>
+var id="{$id}";
+</script>
+<script src="/admin/public/js/imgtypeedit.js"></script>
+{$title}图片类型
+<form id="myform" method="{$method}" action="/admin/imgtype.json">
+    上级
+    <input item="_id" type="hidden" name="id"/>
+    <select item="pid" id="pid" name="pid" style="width: 200px;">
+        <option value="">无</option>
+    </select><br/>
+    名称<input item="title" type="text" name="title" value=""/><br/>
+    英文<input item="en" type="text" name="en" value=""/><br/>
+    描述<input item="memo" type="text" name="memo"/><br/>
+    <input type="submit" value="提交" />
+    <input type="button" onclick="loadHtmlByAjax(window.url_last)" value="返回" />
+</form>

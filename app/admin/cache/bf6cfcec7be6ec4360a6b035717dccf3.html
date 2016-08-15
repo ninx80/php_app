@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php echo isset($base_css) ? $base_css :''; ?>
+        <?php echo isset($base_js) ? $base_js :''; ?>
+        <?php echo isset($css) ? $css :''; ?>
+        
+        <script src="/admin/public/js/common/Validform_v5.3.2.js"></script>
+        <script src="/admin/public/js/common/select2.full.js"></script>
+        
+        <script src="/admin/public/js/common/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/admin/public/css/select2.css"/>
+        
+        <link rel="stylesheet" type="text/css" href="/admin/public/css/jquery.dataTables.min.css"/>
+        
+        <style type="text/css">
+            html{height:100%;}
+            body{margin:20px 20px 20px 20px;height:100%}
+            h1, h2, h3, .masthead p, .subhead p, .marketing h2, .lead {font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei UI","Microsoft YaHei",SimHei,"宋体",simsun,sans-serif;font-weight: normal;}
+        </style>
+        <script>
+            window.url_now='';
+            function loadHtmlByAjax(url){
+                $.ajax({
+                        type: "POST",
+                        url: url,
+                        success: function(data){
+                            $('#content').html(data);
+                            window.url_last = window.url_now;
+                            window.url_now = url;
+                            typeof (window.history.replaceState) != 'undefined' && window.history.pushState('', '', url);
+                        }
+                     });
+            }
+            $(function(){
+                $('.nav-list').on('click','a',function(){
+                    var url=$(this).attr('href');
+                    loadHtmlByAjax(url);
+                    return false;
+                });
+                $('#content').on('click','.add_button',function(){
+                    var url=$(this).attr('href');
+                    loadHtmlByAjax(url);
+                    return false;
+                });
+            });
+            /**
+ * (function($){ 	
+ *                 jQuery._evalUrl = function( url ) {
+ *                     return jQuery.ajax({	
+ *                             url: url,	
+ *                             type: "GET",	
+ *                             dataType: "script",	
+ *                             async: false,	
+ *                             global: false,	
+ *                             "throws": true,	
+ *                             cache:true	
+ *                         
+ *                         })
+ *                 };}
+ *             )(jQuery);
+ */
+        </script>
+    </head>
+    <body>
+            <div class="navbar navbar-inverse ">
+                <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#contact">登陆</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">更多 <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">oh</a></li>
+                        <li><a href="#">my</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">god</a></li>
+                        <li><a href="#">my dog</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            

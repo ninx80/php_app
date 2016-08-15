@@ -1,0 +1,32 @@
+<script>
+var id="{$id}";
+</script>
+<link rel="stylesheet" type="text/css" href="/admin/public/css/uploadifive.css"/>
+<script src="/admin/public/js/common/jquery.uploadifive.min.js"></script>
+<script src="/admin/public/js/imgedit.js"></script>
+<style type="text/css">
+.img_list tr td{margin: 10px;}
+</style>
+{$title}
+图片
+<form id="myform" method="{$method}" action="/admin/img.json" onsubmit="return false">
+    <input item="_id" type="hidden" name="id"/>
+    名称<input item="title" type="text" name="title"/><br/>
+    类型<select item="type_id" id="type_id" name="type_id" style="width: 200px;">
+        <option value="">无</option>
+    </select><br/>
+        <input name="imgs" type="hidden"/>
+        <input name="size" type="hidden"/>
+        <input name="width" type="hidden"/>
+        <input name="height" type="hidden"/>
+    图片
+        <div style="width: 400px;margin:5px"></a><input item="src" id="src" type="file" name="src"/></div>
+        <table class="img_list"></table>
+        <div style="margin: 5px;" id="img_show"></div>
+        
+        
+    描述
+        <textarea item="memo" name="memo"></textarea><br/>
+        <input type="submit" value="提交" />
+        <input type="button" onclick="loadHtmlByAjax(window.url_last)" value="返回" />
+</form>
