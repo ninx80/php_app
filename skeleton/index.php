@@ -1,5 +1,5 @@
-<?php
-define('SYS_ROOT', dirname(str_replace('\\', '/', __FILE__)).'/');//框架目录
+﻿<?php
+define('SYS_ROOT', dirname(str_replace('\\', '/', __FILE__)).'/');//框架目录fds
 require_once(SYS_ROOT.'common/func.php');//载入框架所需函数
 RESET_APP_ROOT($APP_ROOT);//为了使用于项目分组
 define('APP_PREV_ROOT',$APP_ROOT);
